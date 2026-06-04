@@ -43,6 +43,12 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // The default ignore pattern for the 'assets' directory includes hidden files and
+        // directories which are used by Godot projects, so we override it with the following.
+        aaptOptions {
+            ignoreAssetsPattern = "!.svn:!.git:!.gitignore:!.ds_store:!*.scc:<dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"
+        }
     }
 
     signingConfigs {
@@ -144,4 +150,7 @@ dependencies {
 
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.glance.preview)
+
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.godot.android.library)
 }

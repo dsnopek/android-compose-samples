@@ -1,0 +1,27 @@
+CREDITS
+=======
+
+## Rocket Model
+
+Name: Toy Rocket 4K Free 3D model
+Author: Desertsage
+License: CG Trader Royalty Free License with "No AI" (https://www.cgtrader.com/pages/terms-and-conditions#royalty-free-license)
+URL: https://www.cgtrader.com/free-3d-models/space/spaceship/toy-rocket-4k
+
+## Flame Particle
+
+Name: Smoke Particles
+Author: Kenney.nl
+License: CC0
+URL: https://kenney.nl/assets/smoke-particles
+
+## Rocket sounds
+
+Name: Rocket Launch sfx
+Author: JCI21
+License: Pixabay Content License
+URL: https://pixabay.com/sound-effects/film-special-effects-rocket-launch-sfx-253937/
+
+Name: Rocket Launch
+License: Pixabay Content Licens
+URL: https://pixabay.com/sound-effects/film-special-effects-rocket-launch-306441/

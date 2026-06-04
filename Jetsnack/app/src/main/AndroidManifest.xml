@@ -52,6 +52,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".godot.GodotHostActivity"
+            android:exported="false"
+            android:process=":godot"
+            android:screenOrientation="fullUser"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
+            android:theme="@style/Theme.Jetsnack" />
+
     </application>
 
 </manifest>

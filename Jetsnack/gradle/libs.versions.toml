@@ -7,6 +7,7 @@ androidx-appcompat = "1.7.1"
 androidx-compose-bom = "2026.05.00"
 androidx-core-splashscreen = "1.2.0"
 androidx-corektx = "1.18.0"
+androidx-fragment = "1.8.6"
 androidx-glance = "1.2.0-rc01"
 androidx-lifecycle = "2.8.2"
 androidx-lifecycle-compose = "2.10.0"
@@ -30,6 +31,7 @@ coroutines = "1.11.0"
 glancePreview = "1.1.1"
 google-maps = "20.0.0"
 gradle-versions = "0.54.0"
+godot = "4.6.3.stable"
 hilt = "2.59.2"
 hiltExt = "1.3.0"
 horologist = "0.7.15"
@@ -41,7 +43,7 @@ kotlinx_immutable = "0.4.0"
 ksp = "2.3.7"
 maps-compose = "8.3.0"
 # @keep
-minSdk = "23"
+minSdk = "24"
 okhttp = "5.3.2"
 play-services-wearable = "20.0.1"
 robolectric = "4.16.1"
@@ -86,6 +88,7 @@ androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-compose-ui-viewbinding = { module = "androidx.compose.ui:ui-viewbinding" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-corektx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 androidx-glance = { module = "androidx.glance:glance", version.ref = "androidx-glance" }
 androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "androidx-glance" }
 androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "androidx-glance" }
@@ -121,6 +124,7 @@ androidx-window-core = { module = "androidx.window:window-core", version.ref = "
 coil-kt-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 core-jdk-desugaring = { module = "com.android.tools:desugar_jdk_libs", version.ref = "jdkDesugar" }
 dagger-hiltandroidplugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+godot-android-library = { module = "org.godotengine:godot", version.ref = "godot" }
 googlemaps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "maps-compose" }
 googlemaps-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "google-maps" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }

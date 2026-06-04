@@ -16,6 +16,7 @@
 
 package com.example.jetsnack.ui.home.cart
 
+import android.content.Intent
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -68,6 +69,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetsnack.R
+import com.example.jetsnack.godot.AppPlugin
+import com.example.jetsnack.godot.GodotHostActivity
 import com.example.jetsnack.model.OrderLine
 import com.example.jetsnack.model.SnackCollection
 import com.example.jetsnack.model.SnackRepo
@@ -126,7 +129,10 @@ fun Cart(
                 modifier = Modifier.align(Alignment.TopCenter),
             )
             DestinationBar(modifier = Modifier.align(Alignment.TopCenter))
-            CheckoutBar(modifier = Modifier.align(Alignment.BottomCenter))
+            CheckoutBar(
+                orderLines = orderLines,
+                modifier = Modifier.align(Alignment.BottomCenter),
+            )
         }
     }
 }
@@ -437,7 +443,8 @@ fun SummaryItem(subtotal: Long, shippingCosts: Long, modifier: Modifier = Modifi
 }
 
 @Composable
-private fun CheckoutBar(modifier: Modifier = Modifier) {
+private fun CheckoutBar(orderLines: List<OrderLine>, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     Column(
         modifier.background(
             JetsnackTheme.colors.uiBackground.copy(alpha = AlphaNearOpaque),
@@ -448,7 +455,14 @@ private fun CheckoutBar(modifier: Modifier = Modifier) {
         Row {
             Spacer(Modifier.weight(1f))
             JetsnackButton(
-                onClick = { /* todo */ },
+                onClick = {
+                    val filenames = orderLines.map { orderLine ->
+                        context.resources.getResourceEntryName(orderLine.snack.imageRes) + ".jpg"
+                    }
+                    val intent = Intent(context, GodotHostActivity::class.java)
+                        .putExtra(AppPlugin.EXTRA_SNACK_FILENAMES, filenames.toTypedArray())
+                    context.startActivity(intent)
+                },
                 shape = RectangleShape,
                 modifier = Modifier
                     .padding(horizontal = 12.dp, vertical = 8.dp)
