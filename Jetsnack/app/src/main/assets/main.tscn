@@ -445,6 +445,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(0, 0.4322009, 0)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LaunchedLabel:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_h2yge"]
 resource_name = "launch"
@@ -722,9 +734,9 @@ max_distance = 0.0
 unique_name_in_owner = true
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1525714194]
+unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
-autostart = true
 
 [node name="LaunchTimer" type="Timer" parent="." unique_id=1687222958]
 unique_name_in_owner = true
