@@ -154,3 +154,24 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.godot.android.library)
 }
+
+tasks.register("validateGodotAssets") {
+    description = "Validates that the '.godot' folder exists under 'app/src/main/assets/'"
+    group = "verification"
+    doLast {
+        val godotDir = file("src/main/assets/.godot")
+        if (!godotDir.exists() || !godotDir.isDirectory) {
+            throw GradleException(
+                "The '.godot' folder under 'app/src/main/assets/' does not exist. " +
+                        "Please ensure Godot assets are correctly imported to the assets directory by opening" +
+                        " the project in the Godot editor.",
+            )
+        }
+    }
+}
+
+afterEvaluate {
+    tasks.named("preBuild") {
+        dependsOn("validateGodotAssets")
+    }
+}

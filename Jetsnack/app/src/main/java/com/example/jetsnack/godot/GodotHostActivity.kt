@@ -1,5 +1,6 @@
 package com.example.jetsnack.godot
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Process
 import androidx.fragment.app.FragmentActivity
@@ -35,6 +36,11 @@ class GodotHostActivity : FragmentActivity(), GodotHost {
         }
     }
 
+    override fun onNewIntent(newIntent: Intent) {
+        intent = newIntent
+        super.onNewIntent(newIntent)
+    }
+
     private fun initAppPluginIfNeeded(godot: Godot) {
         if (appPlugin == null) {
             appPlugin = AppPlugin(godot)
@@ -48,6 +54,13 @@ class GodotHostActivity : FragmentActivity(), GodotHost {
     override fun getHostPlugins(godot: Godot): Set<GodotPlugin> {
         initAppPluginIfNeeded(godot)
         return setOf(appPlugin!!)
+    }
+
+    /**
+     * Moves the current activity to the background.
+     */
+    fun moveToBackground() {
+        runOnUiThread { moveTaskToBack(true) }
     }
 
     /**

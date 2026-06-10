@@ -54,11 +54,12 @@
 
         <activity
             android:name=".godot.GodotHostActivity"
+            android:launchMode="singleInstance"
             android:exported="false"
             android:process=":godot"
             android:screenOrientation="fullUser"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
-            android:theme="@style/Theme.Jetsnack" />
+            android:theme="@style/Theme.Jetsnack.Panel" />
 
     </application>
 

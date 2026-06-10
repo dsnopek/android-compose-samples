@@ -7,6 +7,7 @@ const Snack = preload("res://snack.gd")
 @onready var snack_parent: Node3D = %Snacks
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var launch_timer: Timer = %LaunchTimer
+@onready var start_timer: Timer = %StartTimer
 
 
 var app_plugin
@@ -15,6 +16,16 @@ var snack_count := 0
 
 
 func _ready() -> void:
+	app_plugin = Engine.get_singleton("AppPlugin")
+	reset_animation()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_RESUMED:
+		reset_animation()
+
+
+func reset_animation() -> void:
 	animation_player.play(&"idle")
 
 	var points: PackedVector3Array
@@ -23,12 +34,12 @@ func _ready() -> void:
 		points.push_back(child.global_position)
 		dist.push_back(child.max_distance)
 
-	app_plugin = Engine.get_singleton("AppPlugin")
+	snacks.clear()
 	if app_plugin:
 		for fn in app_plugin.getSnackFilenames():
 			var texture = load("res://assets/snacks/" + fn)
 			snacks.push_back(create_snack(texture))
-	else:
+	if snacks.is_empty():
 		# If we can't get data from the plugin, show a "demo snack".
 		snacks.push_back(create_snack(null))
 
@@ -38,6 +49,8 @@ func _ready() -> void:
 	for snack in snacks:
 		snack.visible = false
 		snack.setup_path(points, dist)
+
+	start_timer.start()
 
 
 func create_snack(p_texture: Texture2D) -> Snack:

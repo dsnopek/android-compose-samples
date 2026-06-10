@@ -19,6 +19,8 @@
         <item name="android:dialogTheme">@style/Theme.DialogFullScreen</item>
     </style>
 
+    <style name="Theme.Jetsnack.Panel" parent="@android:style/Theme.Material.Light.Panel"></style>
+
     <style name="Theme.Material.DayNight.NoActionBar" parent="@android:style/Theme.Material.Light.NoActionBar" />
 
     <style name="Theme.DialogFullScreen" parent="Theme.Material.DayNight.NoActionBar">

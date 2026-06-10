@@ -13,10 +13,13 @@ config_version=5
 config/name="Jetsnack Rocket"
 run/main_scene="uid://vsdkomxdjoul"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
 
+window/per_pixel_transparency/allowed=true
 window/handheld/orientation=1
 
 [physics]
