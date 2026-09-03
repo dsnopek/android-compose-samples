@@ -7,7 +7,6 @@ androidx-appcompat = "1.7.1"
 androidx-compose-bom = "2026.05.00"
 androidx-core-splashscreen = "1.2.0"
 androidx-corektx = "1.18.0"
-androidx-fragment = "1.8.6"
 androidx-glance = "1.2.0-rc01"
 androidx-lifecycle = "2.8.2"
 androidx-lifecycle-compose = "2.10.0"
@@ -88,7 +87,6 @@ androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-compose-ui-viewbinding = { module = "androidx.compose.ui:ui-viewbinding" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-corektx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
-androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 androidx-glance = { module = "androidx.glance:glance", version.ref = "androidx-glance" }
 androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "androidx-glance" }
 androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "androidx-glance" }

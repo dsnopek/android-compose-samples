@@ -25,7 +25,7 @@ class AppPlugin(godot: Godot) : GodotPlugin(godot) {
      */
     @UsedByGodot
     fun goBack() {
-        (activity as? GodotHostActivity)?.moveToBackground()
+        activity?.moveTaskToBack(true)
     }
 
     companion object {

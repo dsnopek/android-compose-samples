@@ -1,38 +1,21 @@
 package com.example.jetsnack.godot
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Process
-import androidx.fragment.app.FragmentActivity
-import com.example.jetsnack.R
 import org.godotengine.godot.Godot
-import org.godotengine.godot.GodotFragment
 import org.godotengine.godot.GodotHost
-import org.godotengine.godot.plugin.GodotPlugin
 
-/**
- * Hosts the [GodotFragment] and implements [GodotHost] so that runtime plugins
- * (such as [AppPlugin]) are registered with the embedded Godot instance. Without
- * [getHostPlugins], Godot can't find the "AppPlugin" singleton.
- */
-class GodotHostActivity : FragmentActivity(), GodotHost {
-
-    private var godotFragment: GodotFragment? = null
-
-    private var appPlugin: AppPlugin? = null
+class GodotHostActivity : Activity(), GodotHost {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_godot_host)
-        val currentGodotFragment = supportFragmentManager.findFragmentById(R.id.godot_fragment_container)
-        if (currentGodotFragment is GodotFragment) {
-            godotFragment = currentGodotFragment
+        val godot = getGodot()
+        if (godot.initEngine(this, emptyList(), setOf(AppPlugin(godot)))) {
+            setContentView(godot.onInitRenderView(this))
         } else {
-            godotFragment = GodotFragment().also {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.godot_fragment_container, it)
-                    .commitNowAllowingStateLoss()
-            }
+            finish()
         }
     }
 
@@ -41,27 +24,29 @@ class GodotHostActivity : FragmentActivity(), GodotHost {
         super.onNewIntent(newIntent)
     }
 
-    private fun initAppPluginIfNeeded(godot: Godot) {
-        if (appPlugin == null) {
-            appPlugin = AppPlugin(godot)
-        }
+    override fun onStart() {
+        super.onStart()
+        getGodot().onStart(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getGodot().onResume(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        getGodot().onPause(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        getGodot().onStop(this)
     }
 
     override fun getActivity() = this
 
-    override fun getGodot() = godotFragment?.godot
-
-    override fun getHostPlugins(godot: Godot): Set<GodotPlugin> {
-        initAppPluginIfNeeded(godot)
-        return setOf(appPlugin!!)
-    }
-
-    /**
-     * Moves the current activity to the background.
-     */
-    fun moveToBackground() {
-        runOnUiThread { moveTaskToBack(true) }
-    }
+    override fun getGodot(): Godot = Godot.getInstance(this)
 
     /**
      * Finishes this activity, returning to whatever launched it.
@@ -82,6 +67,7 @@ class GodotHostActivity : FragmentActivity(), GodotHost {
      * leaving the app's main process untouched.
      */
     override fun onDestroy() {
+        getGodot().onDestroy(this)
         super.onDestroy()
         Process.killProcess(Process.myPid())
     }
