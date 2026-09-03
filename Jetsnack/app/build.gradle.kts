@@ -151,7 +151,6 @@ dependencies {
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.glance.preview)
 
-    implementation(libs.androidx.fragment.ktx)
     implementation(libs.godot.android.library)
 }
 
