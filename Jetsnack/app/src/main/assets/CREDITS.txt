@@ -25,3 +25,11 @@ URL: https://pixabay.com/sound-effects/film-special-effects-rocket-launch-sfx-25
 Name: Rocket Launch
 License: Pixabay Content Licens
 URL: https://pixabay.com/sound-effects/film-special-effects-rocket-launch-306441/
+
+## Ping sounds
+
+Name: 31 Pings and Metal Filing Sounds
+Author: bart
+License: CC0
+URL: https://opengameart.org/content/31-pings-and-metal-filing-sounds
+

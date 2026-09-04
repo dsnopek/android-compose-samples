@@ -59,6 +59,7 @@
             android:process=":godot"
             android:screenOrientation="fullUser"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
+            android:autoRemoveFromRecents="true"
             android:theme="@style/Theme.Jetsnack.Panel" />
 
     </application>

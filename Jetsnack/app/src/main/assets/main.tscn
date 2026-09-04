@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0vdtd3u237so" path="res://assets/particles/whitePuff01.png" id="2_0xm2m"]
 [ext_resource type="AudioStream" uid="uid://6tmy2fk5wakr" path="res://assets/sounds/rocket_launch.ogg" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://cyfln0iid3mb8" path="res://control_point.gd" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://dxm6wvsto00b2" path="res://assets/sounds/pings_stream_randomizer.tres" id="6_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -332,6 +333,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0.4322009, 0), Vector3(0.022640074, 0.43164486, -0.0491083), Vector3(-0.0062876362, 0.432158, 0.013631223), Vector3(0, 0.4322009, 0)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PingSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_272bh")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
 resource_name = "idle"
@@ -748,6 +764,8 @@ libraries/ = SubResource("AnimationLibrary_1bvp3")
 autoplay = &"idle"
 
 [node name="RocketLaunchSound" type="AudioStreamPlayer" parent="." unique_id=1448249732]
+
+[node name="PingSound" type="AudioStreamPlayer" parent="." unique_id=2057940038]
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_launch_timer_timeout"]

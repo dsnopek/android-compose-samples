@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccb7auqc2av37"
+path="res://.godot/imported/pings and scrapes - Marker #7.wav-c1083c544e2b63c43582d5cbf30f9c97.sample"
+
+[deps]
+
+source_file="res://assets/sounds/pings and scrapes - Marker #7.wav"
+dest_files=["res://.godot/imported/pings and scrapes - Marker #7.wav-c1083c544e2b63c43582d5cbf30f9c97.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

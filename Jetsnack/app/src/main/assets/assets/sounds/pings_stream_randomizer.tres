@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dxm6wvsto00b2"]
+
+[ext_resource type="AudioStream" uid="uid://b6lbqbuf8fapc" path="res://assets/sounds/pings and scrapes - Marker #1.wav" id="1_3afjb"]
+[ext_resource type="AudioStream" uid="uid://bhrvs5vqbi1a" path="res://assets/sounds/pings and scrapes - Marker #2.wav" id="2_d386i"]
+[ext_resource type="AudioStream" uid="uid://c03o7o4lw0x6" path="res://assets/sounds/pings and scrapes - Marker #4.wav" id="3_ophqp"]
+[ext_resource type="AudioStream" uid="uid://dedmt1q6wleli" path="res://assets/sounds/pings and scrapes - Marker #5.wav" id="4_mqos1"]
+[ext_resource type="AudioStream" uid="uid://csranvf5qnocs" path="res://assets/sounds/pings and scrapes - Marker #6.wav" id="5_k8hsj"]
+[ext_resource type="AudioStream" uid="uid://ccb7auqc2av37" path="res://assets/sounds/pings and scrapes - Marker #7.wav" id="6_if6he"]
+[ext_resource type="AudioStream" uid="uid://41au1ow8nlmk" path="res://assets/sounds/pings and scrapes - Marker #8.wav" id="7_bondn"]
+[ext_resource type="AudioStream" uid="uid://bd3mhywc4tres" path="res://assets/sounds/pings and scrapes - Marker #9.wav" id="8_l7bfy"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_3afjb")
+stream_1/stream = ExtResource("2_d386i")
+stream_2/stream = ExtResource("3_ophqp")
+stream_3/stream = ExtResource("4_mqos1")
+stream_4/stream = ExtResource("5_k8hsj")
+stream_5/stream = ExtResource("6_if6he")
+stream_6/stream = ExtResource("7_bondn")
+stream_7/stream = ExtResource("8_l7bfy")
